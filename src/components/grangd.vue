@@ -1,0 +1,25 @@
+<template>
+<div><button @click="grand">grand</button> <span v-show="false" v-text="text"></span>1
+ <input v-model.number="name" />
+</div>
+    
+</template>
+<script>
+export default {
+    data(){
+        return{
+            name:'ss',
+            text: 'text'
+        }
+    },
+    methods:{
+        grand(){
+            console.log(this.name)
+            console.log(this)
+            console.log(this.$attrs)
+            console.log(this.$listeners)
+            this.$emit('grand','grand')
+        }
+    }
+}
+</script>

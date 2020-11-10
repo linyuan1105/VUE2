@@ -1,113 +1,104 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li>
-        <a
-          href="https://vuejs.org"
-          target="_blank"
-        >
-          Core Docs
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://forum.vuejs.org"
-          target="_blank"
-        >
-          Forum
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://chat.vuejs.org"
-          target="_blank"
-        >
-          Community Chat
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://twitter.com/vuejs"
-          target="_blank"
-        >
-          Twitter
-        </a>
-      </li>
-      <br>
-      <li>
-        <a
-          href="http://vuejs-templates.github.io/webpack/"
-          target="_blank"
-        >
-          Docs for This Template
-        </a>
-      </li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li>
-        <a
-          href="http://router.vuejs.org/"
-          target="_blank"
-        >
-          vue-router
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vuex.vuejs.org/"
-          target="_blank"
-        >
-          vuex
-        </a>
-      </li>
-      <li>
-        <a
-          href="http://vue-loader.vuejs.org/"
-          target="_blank"
-        >
-          vue-loader
-        </a>
-      </li>
-      <li>
-        <a
-          href="https://github.com/vuejs/awesome-vue"
-          target="_blank"
-        >
-          awesome-vue
-        </a>
-      </li>
-    </ul>
+    <div is="slotScope">
+      
+    </div>
+    
+    <blogPost>
+      <template v-slot:header>
+        <h1>About Me</h1>
+      </template>
+      <p>Here's some page content</p>
+      <template v-slot:footer>
+        <p>Copyright 2016 Evan You</p>
+      </template>
+    </blogPost>
+    <router-view />
+    {{name.cn}}
+    {{name.en}}
+    {{computedName2}}
+    {{computedName}}<!--111111111111-->
+    <button @click="click" v-my-directive>click</button>
+    <render :icon="1" :title="12" />
+    <slotScope
+      name="linyuan"
+      @grand="grand" ooo="456" :key="'sssss'" att="computedName" :attname="attname" v-bind="$attrs" v-on="$listeners">
+      <template v-slot="scope">
+        <h1>默认插槽</h1>
+        <div>{{scope}}</div>
+      </template>
+      <template v-slot:body>
+        <h1>body改变</h1>
+      </template>
+      <template v-slot:footer="scope">
+        <h1>footer</h1>
+        <div>{{scope}}</div>
+      </template>
+    </slotScope>
+    
   </div>
 </template>
 
 <script>
+import slotScope from './slotScope'
+import blogPost from './blog-post'
+import render from './render'
 export default {
+  comments:true,
   name: 'HelloWorld',
+  components: { render,blogPost,slotScope },
+  computed:{
+    computedName:function(){
+      let name = this
+      console.log(this)
+      return 'computedName'
+    },
+    computedName2:()=>{
+      let name = this
+      console.log(this)
+      return 'computedName2'
+    }
+  },
+  watch: {
+    name:[
+      {
+        handler:function(val,newval){
+          console.log(val,newval)
+        }
+      },
+      {
+        handler:function(val,newval){
+          console.log(val,newval)
+        }
+      }
+    ]
+  },
   data () {
     return {
+      attname:{
+        name:'attrlinyuan'
+      },
+      name: {
+        cn: '林园'
+      },
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  mounted() {
+  },
+  methods: {
+    grand(){
+      this.$forceUpdate()
+      console.log('grand')
+    },
+    attrclic(){
+      console.log('attr')
+    },
+    click() { 
+      console.log(this.$attrs)
+      console.log(this.$isServer)
+      this.$set(this.name, 'en','linyuan')
     }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
