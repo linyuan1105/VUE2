@@ -1,11 +1,13 @@
 <template>
 <div><button @click="grand">grand</button> <span v-show="false" v-text="text"></span>1
  <input v-model.number="name" />
+ +++++++++++++++++++++{{routerProps}}+++++++++++++++++++++
 </div>
     
 </template>
 <script>
 export default {
+    props:['routerProps'],
     data(){
         return{
             name:'ss',

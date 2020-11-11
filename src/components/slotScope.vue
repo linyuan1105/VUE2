@@ -1,6 +1,7 @@
 <template>
     <div>attrs:{{$attrs}}+{{name}}+{{$listeners}}
-      <grangd :attr="attr" v-on="$listeners" v-bind="$attr"/>
+        <button @click="attr_listener">attr_listener</button>
+      <grangd routerProps="routerProps" v-on="$listeners" v-bind="$attrs"/>
         <div>default</div>
       <slot name="header">
           <h1>header</h1>
@@ -43,6 +44,14 @@ export default {
             VSlot:{
                 name:'v-slot'
             }
+        }
+    },
+    methods:{
+        attr_listener(){
+            console.log(this.$attrs)
+            console.log(this.$listeners)
+            console.log(this.$route)
+            console.log(this.$router)
         }
     }
     

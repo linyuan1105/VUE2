@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    
+    <router-view />
     <div is="slotScope">
       
     </div>
@@ -13,7 +15,6 @@
         <p>Copyright 2016 Evan You</p>
       </template>
     </blogPost>
-    <router-view />
     {{name.cn}}
     {{name.en}}
     {{computedName2}}

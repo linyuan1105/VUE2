@@ -2,6 +2,8 @@
   <div id="app">
     
     <router-view/>
+    <router-view name="index"/>
+    <router-view name="M404" />
     <img src="./assets/logo.png">
     
   </div>
