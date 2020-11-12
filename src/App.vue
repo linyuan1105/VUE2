@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     
-    <router-view/>
+    <transition name="slide-left">
+      
     <router-view name="index"/>
     <router-view name="M404" />
+    <router-view/>
+    </transition>
     <img src="./assets/logo.png">
     
   </div>
@@ -11,7 +14,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      transitionName:'slide-left'
+    }
+  }
 }
 </script>
 

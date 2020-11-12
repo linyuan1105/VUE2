@@ -9,6 +9,7 @@ console.log(router.beforeEach)
 router.beforeEach((t,f,n)=>{
   console.log('全局')
   console.log(t)
+  console.log(f)
   n()
 }) 
 Vue.use(VueAxios, axios)
