@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+    functional:false,
     methods:{
         click(){
             console.log(this)

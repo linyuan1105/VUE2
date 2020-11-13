@@ -19,6 +19,7 @@
 <script>
 import grangd from './grangd'
 export default {
+    inheritAttrs:true,
     components:{ grangd },
     props:{
         name:{

@@ -67,10 +67,13 @@
         <h1>footer</h1>
       </template>
     </extend>
+    <div class="line">组件分割线</div>
+    <inherit></inherit>
   </div>
 </template>
 
 <script>
+import inherit from './inherit'
 import extend from './extend'
 import nameSlots from './nameSlots'
 import slotScope from './slotScope'
@@ -79,7 +82,7 @@ import render from './render'
 export default {
   comments:true,
   name: 'HelloWorld',
-  components: { render,blogPost,slotScope,nameSlots,extend },
+  components: { render,blogPost,slotScope,nameSlots,extend,inherit },
   computed:{
     computedName:function(){
       let name = this

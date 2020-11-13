@@ -1,6 +1,7 @@
 <template>
 <div><button @click="grand">grand</button> <span v-show="false" v-text="text"></span>1
  <input v-model.number="name" />
+ {{$attrs}}
  +++++++++++++++++++++{{routerProps}}+++++++++++++++++++++
 </div>
     
