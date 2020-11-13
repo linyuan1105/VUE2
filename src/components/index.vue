@@ -1,7 +1,17 @@
 <template>
-    <div v-bind="$attrs"><h1><router-link to="/index">index</router-link>
+    <div v-bind="$attrs">
+      
+        <h1>  <li><router-link to="/index">index</router-link></li>
+    <li>
         <router-link to="/dycRouter/linyuan">Dycindex{{$route.params.name}}</router-link>
+        
+    </li>
+    <li>
         <router-link to="/trances">trances</router-link>
+    </li>
+    <li>
+        <router-link to="/vuex">vuex</router-link>
+    </li>
         </h1>
         {{routerProps}}
         <button @click="route">route</button></div>

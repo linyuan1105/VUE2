@@ -9,6 +9,10 @@ import trances from '@/components/trances'
 import trances1 from '@/components/trances1'
 import trances2 from '@/components/trances2'
 import trances3 from '@/components/trances3'
+import routerAPI from '@/components/routerAPI'
+import append from '@/components/append'
+import append2 from '@/components/append2'
+import vuex from '@/components/VUEX'
 Vue.use(Router)
 const scrollBehavior = function (to, from, savedPosition) {
   if (savedPosition) {
@@ -86,6 +90,30 @@ export default new Router({
           props:true
         }
       ]
+    },
+    {
+      path:'/routerAPI',
+      component:routerAPI,
+      name:'routerAPI',
+      children:[
+        {
+          path:'append',
+          component:append,
+          redirect:'',
+          name:'append',
+        },
+        {
+          path:'append2',
+          component:append2,
+          name:'append2',
+        }
+      ]
+    },
+    {
+      path:'/vuex',
+      component:vuex,
+      name:'vuex',
+      children:[]
     },
     {
       path:'/trances',

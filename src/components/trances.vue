@@ -1,9 +1,9 @@
 <template>
     <div>
         <ul>
-            <li><router-link to="/trances/trances1"  activeClass="myactiveClass" event="mouseover">trances1</router-link></li>
-            <li><router-link to="/trances/trances2" event="mouseover">trances2</router-link></li>
-            <li><router-link to="/trances/trances3" event="mouseover">trances3</router-link></li>
+            <li><router-link to="/trances/trances1"  activeClass="myactiveClass" event="click">trances1</router-link></li>
+            <li><router-link to="/trances/trances2" event="click">trances2</router-link></li>
+            <li><router-link to="/trances/trances3" event="click">trances3</router-link></li>
         </ul>
         <div>
             
@@ -17,6 +17,7 @@
 </template>
 <script>
 export default {
+    inheritAttrs:false,
     mounted(){
         this.afterLeave()
     },
@@ -29,7 +30,7 @@ export default {
 </script>
 <style  scoped>
 li{
-    height: 500px;
+    height: 200px;
     width: 200px;
     border: 5px solid rebeccapurple;
 }

@@ -49,6 +49,7 @@ export default {
     },
     methods:{
         attr_listener(){
+            console.log(this.$slots)
             console.log(this.$attrs)
             console.log(this.$listeners)
             console.log(this.$route)

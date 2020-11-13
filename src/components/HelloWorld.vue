@@ -2,7 +2,9 @@
   <div class="hello">
     
     <router-view />
-    
+    <h3>
+      <router-link :to="{name:'routerAPI'}">routerAPI</router-link>
+    </h3>
     <div class="line">组件分割线</div>
     <div is="slotScope">
       

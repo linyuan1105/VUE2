@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+    inheritAttrs:false,
     props:['routerProps'],
     data(){
         return{
@@ -21,7 +22,7 @@ export default {
             console.log(this)
             console.log(this.$attrs)
             console.log(this.$listeners)
-            this.$emit('grand','grand')
+            // this.$emit('grand','grand')
         }
     }
 }
